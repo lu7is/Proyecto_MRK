@@ -26,7 +26,7 @@ mostrar empleado
             <td>{{$empleado->Usuario}}</td>
             <td>{{$empleado->Contraseña}}</td>
             <td>
-                <a href="{{ url('/empleado/'.$empleado->id.'/Editar/')}}"><input type="button" value="Editar"></a>
+                <a href="{{ url('/empleado/'.$empleado->id.'/edit')}}"><input type="button" value="Editar"></a>
 
                 <form action="{{url ('/empleado/'.$empleado->id)}}" method="POST">
                 @csrf
