@@ -77,7 +77,12 @@ class EmpleadoController extends Controller
         Empleado::where('id','=',$id)->update($DatosEmpleado);
 
         $empleado=Empleado::findOrfail($id);
-        return view('Empleado.Index', compact('empleado'));
+    
+
+        $datos['empleados']=Empleado::paginate(5);
+        return view('Empleado.Index',$datos);
+        
+
         
 
     }
