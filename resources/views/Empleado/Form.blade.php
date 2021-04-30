@@ -1,4 +1,7 @@
+@extends('layouts.app')
 
+@section('content')
+<div class="container">
 
 <h1>{{$modo}} Empleado</h1>
 <label for="Nombre"> Nombre </label>
@@ -19,3 +22,5 @@
     <input type="submit"value="{{$modo}} Datos"> <br>
 
     <a href="{{url('empleado/')}}"><input type="button" value="Regresar"></a>
+</div>
+@endsection

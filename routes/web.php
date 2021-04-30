@@ -15,12 +15,16 @@ use App\Http\Controllers\EmpleadoController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
-Route::resource('empleado', EmpleadoController::class);
+Route::resource('empleado', EmpleadoController::class)->middleware('auth');
 
+//aplicamos esto cuando no queremos mostrar las pestañas registrar
+Auth::routes(['register'=>false]);
 
-Auth::routes();
+Route::get('/home', [EmpleadoController::class, 'index'])->name('home');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware'=> 'auth'],function () {
+    Route::get('/', [EmpleadoController::class, 'index'])->name('home');
+});

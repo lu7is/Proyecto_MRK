@@ -10,9 +10,9 @@
 {{Session::get('mensaje')}}
     
 @endif
-<a href="{{url('empleado/create')}}"><input type="button" value="Registrar"></a>
+<a href="{{url('empleado/create')}}"><button class="btn btn-success">Registrar Empleado</button></a>
 
-
+<br><br>
 <table class="table">
     <thead>
         <tr>
@@ -40,12 +40,12 @@
             <td>{{$empleado->Usuario}}</td>
             <td>{{$empleado->Contraseña}}</td>
             <td>
-                <a href="{{ url('/empleado/'.$empleado->id.'/edit')}}"><input type="button" value="Editar"></a>
+                <a href="{{ url('/empleado/'.$empleado->id.'/edit')}}"><button class="btn btn-warning">Editar</button></a>
 
-                <form action="{{url ('/empleado/'.$empleado->id)}}" method="POST">
+                <form action="{{url ('/empleado/'.$empleado->id)}}" class="d-inline" method="POST">
                 @csrf
                 {{method_field('DELETE')}}
-                    <input type="submit" onclick="return confirm('Quieres eliminar?')" value="Eliminar">
+                    <input type="submit" onclick="return confirm('Quieres eliminar?')" class="btn btn-danger" value="Eliminar">
                 </form>
             
             </td>
