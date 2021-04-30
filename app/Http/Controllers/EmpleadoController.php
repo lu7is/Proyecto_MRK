@@ -38,7 +38,9 @@ class EmpleadoController extends Controller
     public function store(Request $request)
     {
         $DatosEmpleado = request()->except('_token');
+
         Empleado::insert($DatosEmpleado);
+        return redirect('empleado')->with('mensaje','Empleado agregado');
     }
 
     /**
@@ -77,11 +79,8 @@ class EmpleadoController extends Controller
         Empleado::where('id','=',$id)->update($DatosEmpleado);
 
         $empleado=Empleado::findOrfail($id);
-    
-
-        $datos['empleados']=Empleado::paginate(5);
-        return view('Empleado.Index',$datos);
         
+        return redirect('empleado')->with('mensaje','Empleado Editado con exito');
 
         
 
@@ -97,5 +96,7 @@ class EmpleadoController extends Controller
     {
       Empleado::destroy($id);
       return redirect('empleado');
+
+      return redirect('empleado')->with('mensaje','Empleado agregado');
     }
 }

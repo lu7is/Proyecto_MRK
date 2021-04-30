@@ -2,6 +2,8 @@
 
 <form action="{{url('/empleado')}}" method="POST" enctype="">
     @csrf
-    @include('Empleado.form');
+    @include('Empleado.form',['modo'=>'Crear']);
+
+
     
 </form>

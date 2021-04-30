@@ -1,4 +1,18 @@
-mostrar empleado
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+
+
+
+
+@if (Session::has('mensaje'))
+{{Session::get('mensaje')}}
+    
+@endif
+<a href="{{url('empleado/create')}}"><input type="button" value="Registrar"></a>
+
+
 <table class="table">
     <thead>
         <tr>
@@ -40,3 +54,5 @@ mostrar empleado
        
     </tbody>
 </table>
+</div>
+@endsection

@@ -2,7 +2,8 @@
 <form action="{{url('/empleado/'.$empleado->id)}}" method="post">
     @csrf
     {{method_field('PATCH')}}
-    @include('Empleado.form');
+
+    @include('Empleado.form', ['modo'=>'Editar']);
 
 
 </form>
