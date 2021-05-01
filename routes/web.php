@@ -22,6 +22,7 @@ Route::resource('empleado', EmpleadoController::class)->middleware('auth');
 
 //aplicamos esto cuando no queremos mostrar las pestañas registrar
 Auth::routes(['register'=>false]);
+Auth::routes();
 
 Route::get('/home', [EmpleadoController::class, 'index'])->name('home');
 
